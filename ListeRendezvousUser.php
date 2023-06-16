@@ -1,4 +1,10 @@
 
+<?php 
+
+session_start();
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +54,7 @@
 
       <div class="profile">
         <img src="assets/img/profile-img1.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="MAJ_Profil.php">Profil</a></h1>
+        <h1 class="text-light"><a href="MAJ_Profil_user.php">Profil</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -61,9 +67,11 @@
       <nav id="navbar" class="nav-menu navbar">
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Inscription</span></a></li>
-          <li><a href="Rendezvous.php" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Rendez-Vous</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Notification</span></a></li>
+         
+       <li><a href="Listerendezvoususer.php" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Clendrier-Rendez-vous</span></a></li>
+          
+          <li><a href="liste_Notif_recu.php" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Notification</span></a></li>
+                  <li><a href="index.php" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Deconnexion</span></a></li>
           
  
 
@@ -84,62 +92,8 @@
 
     <!-- ======= About Section ======= -->
 
-
-
-
-
-
     <section id="about" class="about">
-      <div class="container">
-
-        <div class="row">
-          
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img22.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-12 pt-6 pt-lg-0 content" data-aos="fade-left">
-             <form action="" method="POST">
-
-           <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="iduser" class="form-control" placeholder="ID utilisateur" required>
-                </div>
-
-              </div>
-               <br>
-               <br>
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="datetime-local" name="Dat1" class="form-control" placeholder="Date début" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="datetime-local" class="form-control" name="Dat2"placeholder="Date Fin" required>
-                </div>
-              </div>
-                <br>
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="Text" name="statut" class="form-control"  placeholder="Statut" required>
-                </div>
-              
-              </div>
-            
-             <div class="form-group mt-3">
-                <textarea class="form-control" name="note" rows="5" placeholder="votre note ici" required></textarea>
-              </div>
-              <br>
-
-              <div class="text-center"><button type="submit" class="btn btn-primary" name="btn_envoyer">envoyer</button></div>
-
-             
-
-            </form>
-          </div>
-        </div>
-
-      </div>
-
-
+     
 <table class="table">
   <thead>
     <tr>
@@ -150,6 +104,8 @@
       <th scope="col">DATE-FIN</th>
        <th scope="col">STATUT</th>
         <th scope="col">NOTES</th>
+        <th scope="col">Modifier/Annuler</th>
+
 
     </tr>
   </thead>
@@ -157,13 +113,14 @@
 
     <?php
 
+          $val= $_SESSION['$id'];
          $statut='';
              $con=new PDO('mysql:localhost=host;dbname=apprendezvous','root','');
-            $bd=$con->prepare('SELECT ID_R,id_user,DT_H_D,DT_H_F,Statut,Notes from rendezvous');
-      
-           $bd->execute();
-           $row=$bd->fetchAll(PDO::FETCH_ASSOC);
-           $i=0;
+            $bd=$con->prepare('SELECT ID_R,id_user,DT_H_D,DT_H_F,Statut,Notes from rendezvous WHERE ID_user=:id');
+              $bd->bindvalue(':id',$val);
+             $bd->execute();
+            $row=$bd->fetchAll(PDO::FETCH_ASSOC);
+            $i=0;
           foreach ($row as $key) {
             $i++;
            
@@ -176,7 +133,8 @@
              <td><?=$key['DT_H_F'];?></td>
               <td><?=$key['Statut'];?></td>
                <td><?=$key['Notes'];?></td>
-               
+             <td><a href="ModifierRendezvous.php?id=<?=$key['ID_R'];?>" class="btn btn-primary">Edite</a></td>
+      
                    
         </tr>
 
@@ -188,37 +146,7 @@
 
   </tbody>
 
-
-
-
-
-
-
-
-
-
-
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </section><!-- End About Section -->
 

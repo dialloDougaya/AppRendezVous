@@ -68,8 +68,7 @@ session_start();
       <nav id="navbar" class="nav-menu navbar">
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Inscription</span></a></li>
-          <li><a href="Listerendezvoususer.php" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Clendrier-Rendez-vous</span></a></li>
+        <li><a href="Listerendezvoususer.php" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Clendrier-Rendez-vous</span></a></li>
           
           <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Notification</span></a></li>
           

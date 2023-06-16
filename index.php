@@ -86,7 +86,7 @@ if(isset($_POST['btn_valider'])){
    	 header('location:inscription.php');
    	}
    	else{
-   	header('location:inscription_user.php');	
+   	header('location:ListeRendezvousUser.php');	
    	}
 
    }
@@ -118,10 +118,12 @@ if(isset($_POST['btn_valider'])){
 
             
 
-            <button class="btn btn-primary btn-lg btn-block" type="submit" name="btn_valider">Login</button>
+          <button class="btn btn-primary b-lg btn-block " type="submit" name="btn_valider" style="background-color:#589673 ">Connexion</button>
 
-
+        
        </form>
+       <br>
+         <a href="inscription_userLog.php" style="text-align:right;">Creer Compte</a>
 
             
 

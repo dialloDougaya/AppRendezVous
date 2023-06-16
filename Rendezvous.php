@@ -1,4 +1,10 @@
 
+<?php 
+
+session_start();
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,7 +69,9 @@
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Inscription</span></a></li>
           <li><a href="Rendezvous.php" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Rendez-Vous</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Notification</span></a></li>
+          <li><a href="Liste_rendez_vous_Notif.php" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Notification</span></a></li>
+
+         <li><a href="index.php" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Deconnexion</span></a></li>
           
  
 
@@ -200,11 +208,14 @@
                 </div>
               </div>
                 <br>
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="Text" name="statut" class="form-control"  placeholder="Statut" required>
-                </div>
               
+               <div class="form-group mt-3">
+               
+             <SELECT  class="form-select" required="required" name="statut" > 
+             <option>Confirmer </option>
+              <option>En Attente </option>
+               <option>Annuler </option>
+             </SELECT>
               </div>
             
              <div class="form-group mt-3">
@@ -233,7 +244,7 @@
       <th scope="col">DATE-FIN</th>
        <th scope="col">STATUT</th>
         <th scope="col">NOTES</th>
-        
+
     </tr>
   </thead>
   <tbody>
@@ -261,7 +272,6 @@
                <td><?=$key['Notes'];?></td>
                
                    
-
         </tr>
 
 

@@ -68,8 +68,10 @@ session_start();
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Inscription</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Rendez-Vous</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Notification</span></a></li>
+          <li><a href="Rendezvous.php" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Rendez-Vous</span></a></li>
+          <li><a href="Liste_rendez_vous_Notif.php" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Notification</span></a></li>
+
+         <li><a href="index.php" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Deconnexion</span></a></li>
           
  
 
@@ -226,7 +228,7 @@ session_start();
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Ingé Diallo</span></strong>
+        &copy; Copyright <strong><span>DougayaTech</span></strong>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
